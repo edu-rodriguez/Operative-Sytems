@@ -1,3 +1,5 @@
+// La estructura del BCP en Linux se llama task_struct
+
 // Segmentos en proc->gdt.
 #define NSEGS     7
 
