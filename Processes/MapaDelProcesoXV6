@@ -1,0 +1,10 @@
+# Resumen: Mapa de Memoria y Pilas en xv6
+
+En xv6, la imagen del proceso se encuentra entre las direcciones 00000000H y 80000000H, mientras que el kernel se ubica por encima de esa dirección hasta FE000000H. 
+Este es el mapa de memoria visible para la CPU.
+
+Los procesos en xv6 tienen dos stacks: uno en la zona de usuario (stack del proceso) y otro en la zona del kernel (stack del kernel). 
+Esto es posible gracias a la arquitectura de Intel, que ofrece dos registros distintos: SP y SP', para este propósito.
+
+La presencia de dos pilas evita la necesidad de realizar un cambio de contexto cada vez que se pasa del modo usuario al modo supervisor. 
+Además, incluso si la pila del proceso se corrompe, la del kernel permanece intacta y puede manejar excepciones sin problemas.
